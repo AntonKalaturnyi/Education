@@ -3,6 +3,11 @@ package com.Ahtoh.company.Fifth;
 import java.util.ArrayList;
 import static java.lang.System.out;
 
+/**
+ * Task 5
+ * @author Kalaturnui Anton
+ */
+
 public class IntelligenceService {
 
     private static String[] wantedInformation = new String[3];
@@ -29,6 +34,9 @@ private static class Log {
     }
 }
 
+    public static void clearLogs() {
+        logs.removeAll(logs);
+    }
 
     public static String[] getWantedInformation() {
         return wantedInformation;

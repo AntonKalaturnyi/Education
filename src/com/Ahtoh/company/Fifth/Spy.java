@@ -1,7 +1,9 @@
 package com.Ahtoh.company.Fifth;
 
-import java.util.Observable;
-
+/**
+ * Task 5
+ * @author Kalaturnui Anton
+ */
 
 public class Spy implements Observer, Criminal {
 
@@ -19,7 +21,7 @@ private String name;
 
     @Override
     public void addInformation(String s) {
-   if(s != "") {
+   if(s.equals("")) {
        IntelligenceService.log(s);
    }
     }

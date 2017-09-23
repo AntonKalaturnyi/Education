@@ -1,30 +1,62 @@
 package com.Ahtoh.company.Fifth;
 
+import java.util.Scanner;
 import static java.lang.System.out;
 
+/**
+ * Task 5
+ * @author Kalaturnui Anton
+ */
+
 public class Main {
-    public static void main(String ... args) {
-        CriminalMeeting activity = new CriminalMeeting();
-        CriminalMeeting main = new CriminalMeeting();
-        Thread thread = new Thread(activity, "activity");
-        thread.start();
-        main.registerMembers();
+
+    static {
+        out.println("                                           From meeting :    tzzz ");
+    }
+
+    public static void main(String... args) {
+
+        CriminalMeeting one = new CriminalMeeting();
+        CriminalMeeting two = new CriminalMeeting();
+
+        Thread first = new Thread(one, "One");
+        Thread second = new Thread(two, "Two");
+
+        first.start();
+        second.start();
+
 
         try {
-            thread.join();
+            first.join();
+            second.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        main.runMeeting();
-       out.println(CriminalMeeting.getMembers().size());
+
+        IntelligenceService.printLogs();
+        IntelligenceService.clearLogs();
+        CriminalMeeting.registered();
+
+        Scanner scan = new Scanner(System.in);
+        out.println("And what now?" +
+                "\n" + "1 + [name] - add spy " +
+                "\n" + "2 + [name] - add criminal" +
+                "\n" + "3 - run meeting as is" + "\n"
+        );
+
+        CriminalMeeting.continuE(scan.nextInt(), scan);
+
+        one.runMeeting();
+
 
         IntelligenceService.printLogs();
 
-        /*
-        for (int i = 0; i < CriminalMeeting.getMembers().size() ; i++) {
-    out.println("" + i + CriminalMeeting.getMembers().get(i).getName());
+        CriminalMeeting.registered();
 
-}
-*/
+        /*
+        for (Criminal c : CriminalMeeting.getMembers()) {
+            out.println(c.getName());
+        }
+        */
     }
 }

@@ -2,6 +2,11 @@ package com.Ahtoh.company.Fifth;
 
 import java.util.ArrayList;
 
+/**
+ * Task 5
+ * @author Kalaturnui Anton
+ */
+
 public class SuspiciousElement implements Criminal {
 
     private String name;
